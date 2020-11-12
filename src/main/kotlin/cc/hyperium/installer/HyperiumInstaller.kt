@@ -28,7 +28,7 @@ class InstallerApp : App(InstallerView::class, InstallerStyles::class)
 
 fun main(args: Array<String>) {
     // Update to current date when changing version
-    Installer.logger.info("Running Hyperium installer version 1.5.3/March 27th 2020")
+    Installer.logger.info("Running RGNClient installer version 1.0.0 (1.5.3/March 27th 2020)")
 
     if (args.isEmpty() || (System.console() == null && JFXConfig.cli))
         try {
@@ -46,7 +46,7 @@ fun main(args: Array<String>) {
                 JOptionPane.WARNING_MESSAGE
             )
         }
-    else mainBody("Hyperium Installer") {
+    else mainBody("RGNClient Installer") {
         runBlocking {
             Installer.install(ArgParser(args).parseInto(::CLIConfig)) { /* Ignore callback because we're using logger */ }
                 .await()
